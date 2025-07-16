@@ -1,0 +1,29 @@
+{
+  "url": "https://github.com",
+  "html_version": "HTML5",
+  "title": "GitHub · Build and ship software on a single, collaborative platform · GitHub",
+  "heading_counts": {
+    "H1": 4,
+    "H2": 11,
+    "H3": 16
+  },
+  "internal_links": 66,
+  "external_links": 30,
+  "broken_links": 3,
+  "broken_link_detail": [
+    {
+      "url": "https://www.gartner.com/doc/reprints?id=1-2IKO4MPE\u0026ct=240819\u0026st=sb",
+      "status_code": 403
+    },
+    {
+      "url": "https://www.linkedin.com/company/github",
+      "status_code": 999
+    },
+    {
+      "url": "https://x.com/github",
+      "status_code": 403
+    }
+  ],
+  "total_links": 96,
+  "has_login_form": false
+}

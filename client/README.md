@@ -189,8 +189,8 @@ client/
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
-   cd client
+   git clone https://github.com/diabahmed/sykell-crawler.git
+   cd sykell-crawler && cd client
    ```
 
 2. **Install dependencies**

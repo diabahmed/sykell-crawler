@@ -1,0 +1,67 @@
+services:
+  # The Frontend Service
+  frontend:
+    container_name: next-frontend
+    platform: linux/amd64
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        API_URL: "http://api:8080/api/v1"
+        BUILD_STANDALONE: true
+    restart: always
+    ports:
+    - 3000:3000
+    depends_on:
+      - api
+    networks:
+      - app-network
+  
+  # The MySQL Database Service
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      # This command checks if the MySQL server is responsive.
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD}"]
+      interval: 10s   # Check every 10 seconds
+      timeout: 5s     # Wait 5 seconds for the check to return
+      retries: 5      # Try 5 times before marking as unhealthy
+      start_period: 30s # Grace period for the container to initialize
+    networks:
+      - app-network
+
+  # The Go API Service
+  api:
+    container_name: go-api
+    platform: linux/amd64
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8088:8080"
+    env_file:
+      - .env
+    volumes:
+      - ./.env:/app/app.env
+    depends_on:
+      db:
+        condition: service_healthy # Wait for the healthcheck to pass
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

@@ -16,7 +16,7 @@ services:
     - 3000:3000
     depends_on:
       - api
-  
+
   # The MySQL Database Service
   db:
     image: mysql:8.0
@@ -50,7 +50,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./.env:/app/app.env
+      - ./server/.env:/app/app.env
     depends_on:
       db:
         condition: service_healthy # Wait for the healthcheck to pass

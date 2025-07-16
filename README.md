@@ -8,6 +8,12 @@
 ![Docker](https://img.shields.io/badge/Docker-Supported-blue.svg)
 ![MySQL](https://img.shields.io/badge/Database-MySQL%208.0-orange.svg)
 
+<img width="1920" height="1080" alt="Screenshot 2025-07-16 103733" src="https://github.com/user-attachments/assets/9ffe1416-401b-4a5b-91a5-b6f662ca7b48" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-16 103726" src="https://github.com/user-attachments/assets/3f506173-9c9f-45c5-82c7-2db4ec7ee0a5" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-16 103759" src="https://github.com/user-attachments/assets/69b86f55-0598-4d38-8062-cb59da50f92e" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-16 103815" src="https://github.com/user-attachments/assets/685129f1-986c-4584-9dbe-532af1997076" />
+
+
 A comprehensive, full-stack web crawling platform that provides powerful website analysis capabilities through a modern web interface. Built with Go backend and Next.js frontend, this platform offers real-time crawling, detailed analytics, and an exceptional user experience.
 
 > **⚡ Rapid Development Achievement**: This entire full-stack application was built after learning Go in just one day! It showcases the power of modern development tools, clean architecture patterns, and the effectiveness of well-structured frameworks for building robust applications quickly.

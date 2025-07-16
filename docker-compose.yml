@@ -7,15 +7,15 @@ services:
       context: ./client
       dockerfile: Dockerfile
       args:
-        API_URL: "http://api:8080/api/v1"
         BUILD_STANDALONE: true
     restart: always
+    environment:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_WS_BASE_URL: ${NEXT_PUBLIC_WS_BASE_URL}
     ports:
     - 3000:3000
     depends_on:
       - api
-    networks:
-      - app-network
   
   # The MySQL Database Service
   db:
@@ -36,8 +36,6 @@ services:
       timeout: 5s     # Wait 5 seconds for the check to return
       retries: 5      # Try 5 times before marking as unhealthy
       start_period: 30s # Grace period for the container to initialize
-    networks:
-      - app-network
 
   # The Go API Service
   api:
@@ -56,12 +54,6 @@ services:
     depends_on:
       db:
         condition: service_healthy # Wait for the healthcheck to pass
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
 
 volumes:
   mysql_data:

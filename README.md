@@ -177,31 +177,6 @@ For detailed local development instructions, refer to the component-specific REA
 - **[Backend Development Guide](./server/README.md)** - Go API setup, testing, and development
 - **[Frontend Development Guide](./client/README.md)** - Next.js setup, components, and testing
 
-## 🧪 Testing
-
-The platform includes comprehensive testing suites:
-
-### Backend Tests
-
-```bash
-cd server
-go test ./...
-```
-
-### Frontend E2E Tests
-
-```bash
-cd client
-pnpm test:e2e
-```
-
-### Integration Tests
-
-```bash
-# Run full platform tests
-docker-compose -f docker-compose.test.yml up --build
-```
-
 ## 📖 Documentation
 
 ### Component Documentation
@@ -223,9 +198,6 @@ docker-compose -f docker-compose.test.yml up --build
 
 ### API Documentation
 
-When running the backend, visit:
-
-- **Swagger UI**: http://localhost:8088/swagger/index.html
 - **API Endpoints**: Detailed in [Backend README](./server/README.md#-api-endpoints)
 
 ## 🔐 Security
